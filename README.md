@@ -1,6 +1,8 @@
 # nojail
-Script to execute binaries outside firejail
 
+![AUR version](https://img.shields.io/aur/version/nojail)
+
+**Script to execute binaries outside firejail**
 ## Usage
 
 ```

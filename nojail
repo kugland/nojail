@@ -1,0 +1,23 @@
+#!/bin/sh
+# Written by Andre Kugland
+
+# If $0 != 'nojail', prepend $0 to $@.
+[ "$(basename "$0")" != 'nojail' ] && set -- "$0" "$@"
+
+# If $@ is empty, show error message and return error.
+if [ $# -eq 0 ]; then
+  >&2 echo "Usage: nojail CMD [args...]"
+  exit 1
+fi
+
+# Get the name of the binary and pop $1 from $@.
+BINARY="/usr/bin/$(basename "$1")"
+shift
+
+# If $BINARY is executable, execute it; otherwise, show error message.
+if [ -x "$BINARY" ]; then
+  exec $BINARY "$@"
+else
+  >&2 echo "nojail: Error \`$BINARY' is not an executable file."
+  exit 1
+fi

@@ -1,0 +1,8 @@
+#compdef nojail
+
+local cmd
+local -a _comp_priv_prefix
+
+cmd="$words[1]"
+_arguments : \
+  '*::arguments:{ _comp_priv_prefix=( $cmd -n ${(kv)opt_args[-u]} ) ; _normal }'

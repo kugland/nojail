@@ -1,5 +1,4 @@
 #!/bin/sh
-# Written by Andre Kugland
 
 # If $0 != 'nojail', prepend $0 to $@.
 [ "$(basename "$0")" != 'nojail' ] && set -- "$0" "$@"
